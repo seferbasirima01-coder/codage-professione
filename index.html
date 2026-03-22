@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprendre le Web : Frontend & Backend</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav class="navbar">
+        <div class="logo">WebGuide<span>.</span></div>
+        <ul class="nav-links">
+            <li><button id="theme-toggle" class="theme-btn" title="Activer Jour/Nuit">☀️/🌙</button></li>
+            <li><a href="#intro">01. Intro</a></li>
+            <li><a href="#frontend">02. Frontend</a></li>
+            <li><a href="#backend">03. Backend</a></li>
+            <li><a href="#integration">04. API</a></li>
+            <li><a href="#conclusion">05. Full Stack</a></li>
+            <li><a href="#contact">06. Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Partie 1: Introduction -->
+        <section id="intro" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge">Partie 1</span>
+                <h1>L'Anatomie du <span>Web</span></h1>
+                <p class="subtitle">Comprendre la dynamique entre le Frontend et le Backend.</p>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>L'Analogie du Restaurant</h3>
+                        <p>Imaginez un restaurant. Le <strong>Frontend</strong> est la salle à manger : le menu, la
+                            décoration, l'endroit où vous interagissez. Le <strong>Backend</strong> est la cuisine : les
+                            ingrédients, le chef, le stockage, cachés à votre vue mais essentiels pour préparer votre
+                            commande.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Le Modèle Client-Serveur</h3>
+                        <p>Votre navigateur (le client) demande une page au serveur à travers Internet. Le serveur (le
+                            backend) traite la demande et renvoie les informations que le navigateur (le frontend)
+                            affiche magnifiquement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partie 2: Frontend -->
+        <section id="frontend" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge badge-primary">Partie 2</span>
+                <h2>Le <span>Frontend</span></h2>
+                <p class="subtitle">La face visible de l'iceberg. L'expérience utilisateur.</p>
+                <p>Le Frontend est tout ce avec quoi l'utilisateur interagit directement. Il tourne dans le navigateur
+                    web.</p>
+
+                <div class="tech-stack">
+                    <div class="tech-item" onclick="openModal('htmlModal')" style="cursor: pointer;">
+                        <div class="tech-icon html-icon">HTML</div>
+                        <h4>Structure</h4>
+                        <p>Le squelette de la page.</p>
+                        <span class="click-hint">Cliquez pour le cours HTML</span>
+                    </div>
+                    <div class="tech-item" onclick="openModal('cssModal')" style="cursor: pointer;">
+                        <div class="tech-icon css-icon">CSS</div>
+                        <h4>Style</h4>
+                        <p>Le design, les couleurs, les animations.</p>
+                        <span class="click-hint">Cliquez pour le cours CSS</span>
+                    </div>
+                    <div class="tech-item" onclick="openModal('jsModal')" style="cursor: pointer;">
+                        <div class="tech-icon js-icon">JS</div>
+                        <h4>Interactivité</h4>
+                        <p>La logique côté client, dynamisme.</p>
+                        <span class="click-hint">Cliquez pour le cours JS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partie 3: Backend -->
+        <section id="backend" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge badge-secondary">Partie 3</span>
+                <h2>Le <span>Backend</span></h2>
+                <p class="subtitle">Le moteur invisible. La logique métier et les données.</p>
+                <p>Le Backend s'occupe de la sécurité, du stockage des données et de la logique complexe de
+                    l'application.</p>
+
+                <div class="grid-3">
+                    <div class="card dark-card">
+                        <h3>1. Le Serveur</h3>
+                        <p>Un ordinateur puissant toujours connecté, prêt à répondre aux requêtes. Utilise des langages
+                            comme Node.js, Python, Java ou PHP.</p>
+                    </div>
+                    <div class="card dark-card">
+                        <h3>2. L'Application</h3>
+                        <p>Le code qui contient la "logique métier". C'est ici que se font les calculs,
+                            l'authentification et le traitement des données.</p>
+                    </div>
+                    <div class="card dark-card">
+                        <h3>3. La Base de Données</h3>
+                        <p>Le classeur numérique où sont stockées toutes les informations (utilisateurs, produits,
+                            etc.). Ex: MySQL, PostgreSQL, MongoDB.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partie 4: Intégration -->
+        <section id="integration" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge badge-accent">Partie 4</span>
+                <h2>L'<span>Intégration</span> (API)</h2>
+                <p class="subtitle">Comment le Frontend et le Backend communiquent.</p>
+                <div class="api-flow">
+                    <div class="flow-step">
+                        <h4>Frontend</h4>
+                        <p>Demande des données (ex: "Donne-moi le profil de l'utilisateur")</p>
+                    </div>
+                    <div class="flow-arrow">HTTP / REST &rarr;</div>
+                    <div class="flow-step">
+                        <h4>API</h4>
+                        <p>Le pont de communication, souvent au format JSON.</p>
+                    </div>
+                    <div class="flow-arrow">&larr; JSON</div>
+                    <div class="flow-step">
+                        <h4>Backend</h4>
+                        <p>Cherche en base de données et renvoie le résultat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partie 5: Conclusion -->
+        <section id="conclusion" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge badge-success">Partie 5</span>
+                <h2>Le Développeur <span>Full Stack</span></h2>
+                <p class="subtitle">Le maître des deux mondes.</p>
+                <div class="grid-2">
+                    <div class="card glass-card">
+                        <h3>La Syntaxe Parfaite</h3>
+                        <p>Un développeur Full Stack comprend à la fois comment construire une interface utilisateur
+                            élégante et comment architecturer une base de données robuste en arrière-plan.</p>
+                    </div>
+                    <div class="card glass-card">
+                        <h3>Résumé des étapes</h3>
+                        <ul>
+                            <li><strong>UI/UX:</strong> Design de l'interface</li>
+                            <li><strong>Frontend:</strong> Intégration HTML/CSS/JS</li>
+                            <li><strong>Backend:</strong> Création de l'API et logique</li>
+                            <li><strong>Base de données:</strong> Stockage des données</li>
+                            <li><strong>Déploiement:</strong> Mise en ligne du site</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partie 6: Contact -->
+        <section id="contact" class="section glass-panel fade-in">
+            <div class="content">
+                <span class="badge badge-accent">Partie 6</span>
+                <h2>Me <span>Contacter</span></h2>
+                <p class="subtitle">Besoin d'un Développeur Full Stack ? Écrivez-moi directement !</p>
+
+                <div class="grid-2">
+                    <!-- Info Contact -->
+                    <div class="contact-info card">
+                        <h3>Mes Coordonnées</h3>
+                        <p>Je suis à votre écoute pour tout projet de développement web.</p>
+                        <ul class="info-list">
+                            <li><strong>Nom : </strong> SIRIMA SEFERBA ADAMA</li>
+                            <li><strong>Email : </strong> <a
+                                    href="mailto:seferbasirima01@gmail.com">seferbasirima01@gmail.com</a></li>
+                            <li><strong>WhatsApp : </strong> <a href="https://wa.me/22666211180" target="_blank"
+                                    rel="noopener noreferrer">+226 66 21 11 80</a></li>
+                        </ul>
+                        <div class="form-illustration">
+                            <div class="tech-icon html-icon"
+                                style="display:inline-flex; width: 50px; height: 50px; font-size: 0.8rem;">Dev</div>
+                            <div class="tech-icon css-icon"
+                                style="display:inline-flex; width: 50px; height: 50px; font-size: 0.8rem;">Full</div>
+                            <div class="tech-icon js-icon"
+                                style="display:inline-flex; width: 50px; height: 50px; font-size: 0.8rem;">Stack</div>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire -->
+                    <div class="contact-form-container card">
+                        <h3>Envoyez un message</h3>
+                        <!-- Utilisation de FormSubmit pour envoyer le mail sans configuration backend JS/PHP -->
+                        <form action="https://formsubmit.co/seferbasirima01@gmail.com" method="POST"
+                            class="contact-form">
+                            <input type="hidden" name="_subject" value="Nouveau contact depuis le Portfolio Web !">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" id="nom" name="Nom" required placeholder="Votre nom">
+                                </div>
+                                <div class="form-group">
+                                    <label for="prenom">Prénom</label>
+                                    <input type="text" id="prenom" name="Prenom" required placeholder="Votre prénom">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Adresse E-mail</label>
+                                <input type="email" id="email" name="Email" required placeholder="exemple@mail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="logiciel">Logiciels / Langages maîtrisés</label>
+                                <input type="text" id="logiciel" name="Logiciels_Maitrises"
+                                    placeholder="Ex: HTML, CSS, JS, Node.js, Python...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Votre Message</label>
+                                <textarea id="message" name="Message" rows="5" required
+                                    placeholder="Comment puis-je vous aider ?"></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Envoyer l'E-mail</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WebGuide. Créé avec passion pour l'apprentissage.</p>
+    </footer>
+
+    <!-- HTML Modal -->
+    <div id="htmlModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn" onclick="closeModal('htmlModal')">&times;</span>
+            <div class="modal-body">
+                <h2>C'est un excellent projet !</h2>
+                <p>Le HTML est la fondation de tout ce que vous voyez sur le web. Pour bien comprendre, imaginez que le
+                    <strong>HTML est le squelette</strong> d'une maison, le <strong>CSS la décoration</strong>, et le
+                    <strong>Backend la plomberie et l'électricité</strong> qui font que tout fonctionne en coulisses.
+                </p>
+                <p>Voici un cours structuré pour vous lancer.</p>
+
+                <hr>
+
+                <h3>1. Introduction au HTML5</h3>
+                <p>Le HTML (HyperText Markup Language) n'est pas un langage de programmation, mais un <strong>langage de
+                        balisage</strong>. Il utilise des "balises" pour structurer le contenu.</p>
+
+                <h4>Structure de base d'un document</h4>
+                <p>Chaque page web commence par cette structure :</p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma Première Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenue sur mon site&lt;/h1&gt;
+    &lt;p&gt;Ceci est un paragraphe de texte.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <hr>
+
+                <h3>2. Les Balises Essentielles</h3>
+                <p>Voici les éléments que vous utiliserez 90% du temps :</p>
+                <ul>
+                    <li><strong>Titres :</strong> <code>&lt;h1&gt;</code> (le plus important) à <code>&lt;h6&gt;</code>.
+                    </li>
+                    <li><strong>Listes :</strong> <code>&lt;ul&gt;</code> (à puces) ou <code>&lt;ol&gt;</code>
+                        (numérotée), avec des <code>&lt;li&gt;</code> à l'intérieur.</li>
+                    <li><strong>Liens :</strong>
+                        <code>&lt;a href="https://google.com"&gt;Lien vers Google&lt;/a&gt;</code>.</li>
+                    <li><strong>Images :</strong> <code>&lt;img src="image.jpg" alt="Description"&gt;</code>.</li>
+                    <li><strong>Conteneurs :</strong> <code>&lt;div&gt;</code> (bloc) et <code>&lt;span&gt;</code> (en
+                        ligne).</li>
+                </ul>
+
+                <hr>
+
+                <h3>3. Les Formulaires : Le pont vers le Backend</h3>
+                <p>C'est ici que le HTML devient intéressant pour un développeur backend. Un formulaire permet d'envoyer
+                    des données utilisateur au serveur.</p>
+
+                <h4>Exemple de formulaire d'inscription</h4>
+                <pre><code>&lt;form action="/inscription" method="POST"&gt;
+    &lt;label for="username"&gt;Nom d'utilisateur :&lt;/label&gt;
+    &lt;input type="text" id="username" name="utilisateur" required&gt;
+
+    &lt;label for="email"&gt;Email :&lt;/label&gt;
+    &lt;input type="email" id="email" name="courriel"&gt;
+
+    &lt;button type="submit"&gt;S'inscrire&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <p><strong>Explications clés pour le Backend :</strong></p>
+                <ul>
+                    <li><code>action="/inscription"</code> : C'est l'URL sur le serveur qui va recevoir les données.
+                    </li>
+                    <li><code>method="POST"</code> : La manière d'envoyer les données (POST est plus sécurisé que GET
+                        pour les formulaires).</li>
+                    <li><code>name="utilisateur"</code> : C'est l'identifiant que le serveur utilisera pour récupérer la
+                        valeur saisie.</li>
+                </ul>
+
+                <hr>
+
+                <h3>4. Le Backend : Qu'est-ce qui se passe après le clic ?</h3>
+                <p>Une fois que l'utilisateur clique sur "S'inscrire", le navigateur envoie une requête au serveur.</p>
+
+                <h4>Exemple concret (Logique Backend)</h4>
+                <p>Imaginons que vous utilisiez <strong>Node.js</strong> ou <strong>Python</strong> côté serveur. Voici
+                    ce que le backend fait avec votre HTML :</p>
+                <ol>
+                    <li><strong>Réception :</strong> Le serveur voit arriver une requête sur <code>/inscription</code>.
+                    </li>
+                    <li><strong>Traitement :</strong> Il extrait les données (ex: <code>utilisateur = "Jean"</code>,
+                        <code>courriel = "jean@mail.com"</code>).</li>
+                    <li><strong>Validation :</strong> Il vérifie si l'email est valide et si l'utilisateur n'existe pas
+                        déjà.</li>
+                    <li><strong>Stockage :</strong> Il enregistre ces infos dans une <strong>Base de Données</strong>
+                        (SQL ou NoSQL).</li>
+                    <li><strong>Réponse :</strong> Il renvoie une nouvelle page HTML au navigateur disant "Merci Jean,
+                        vous êtes inscrit !".</li>
+                </ol>
+
+                <h4>Comparaison Backend vs Frontend</h4>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Caractéristique</th>
+                            <th>Frontend (HTML/CSS/JS)</th>
+                            <th>Backend (Node, Python, PHP, etc.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Lieu d'exécution</strong></td>
+                            <td>Navigateur de l'utilisateur</td>
+                            <td>Serveur distant</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rôle</strong></td>
+                            <td>Interface et visuel</td>
+                            <td>Logique, Sécurité, Données</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visibilité</strong></td>
+                            <td>Code source public</td>
+                            <td>Code caché et protégé</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <h3>5. Résumé du flux de données</h3>
+                <ol>
+                    <li><strong>HTML</strong> affiche le formulaire.</li>
+                    <li>L'utilisateur remplit et valide.</li>
+                    <li>Le navigateur envoie les données via <strong>HTTP</strong>.</li>
+                    <li>Le <strong>Backend</strong> traite, interagit avec la base de données.</li>
+                    <li>Le <strong>Backend</strong> génère une réponse (souvent du HTML ou du JSON).</li>
+                </ol>
+
+                <hr>
+                <p><em>Souhaitez-vous que je vous montre un exemple de code simple en <strong>Node.js</strong> ou en
+                        <strong>Python</strong> pour voir comment on réceptionne concrètement les données de ce
+                        formulaire HTML ?</em></p>
+            </div>
+        </div>
+    </div> <!-- CSS Modal -->
+    <div id="cssModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn" onclick="closeModal('cssModal')">&times;</span>
+            <div class="modal-body">
+                <h2>La Beauté du Web avec CSS</h2>
+                <p>Si le HTML est le squelette, le <strong>CSS est la peau, les vêtements et le maquillage</strong> de
+                    votre site. C'est lui qui donne vie et style à vos pages web !</p>
+                <p>Voici un cours rapide et structuré pour maîtriser l'essentiel.</p>
+
+                <hr>
+
+                <h3>1. Introduction au CSS3</h3>
+                <p>Le CSS (Cascading Style Sheets) est le <strong>langage de style</strong> utilisé pour concevoir et
+                    mettre en page des pages web.</p>
+
+                <h4>Comment intégrer du CSS au HTML ?</h4>
+                <ul>
+                    <li><strong>En ligne (Inline)</strong> : <code>&lt;h1 style="color: blue;"&gt;</code> (Déconseillé)
+                    </li>
+                    <li><strong>Interne</strong> : Dans une balise <code>&lt;style&gt;</code> dans votre HTML.</li>
+                    <li><strong>Externe (Recommandé)</strong> : Via un fichier <code>.css</code> lié comme ceci :</li>
+                </ul>
+                <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+                <hr>
+
+                <h3>2. Les Sélecteurs CSS</h3>
+                <p>Pour styliser un élément, vous devez lui dire quelle "cible" viser.</p>
+                <ul>
+                    <li><strong>Balise</strong> : <code>p { color: red; }</code> (cible tous les paragraphes)</li>
+                    <li><strong>Classe</strong> : <code>.ma-classe { font-weight: bold; }</code> (cible les éléments
+                        ayant <code>class="ma-classe"</code>)</li>
+                    <li><strong>ID</strong> : <code>#mon-id { margin: 20px; }</code> (cible un élément unique ayant
+                        <code>id="mon-id"</code>)</li>
+                </ul>
+
+                <hr>
+
+                <h3>3. Le Modèle de Boîte (Box Model)</h3>
+                <p>C'est le concept <strong>le plus important</strong> en CSS. Chaque élément est vu comme une boîte
+                    comprenant :</p>
+                <ol>
+                    <li><strong>Content (Contenu)</strong> : Le texte ou l'image.</li>
+                    <li><strong>Padding (Marge interne)</strong> : L'espace entre le contenu et la bordure.</li>
+                    <li><strong>Border (Bordure)</strong> : La ligne entourant la boîte.</li>
+                    <li><strong>Margin (Marge externe)</strong> : L'espace invisible poussant les autres éléments.</li>
+                </ol>
+                <pre><code>.boite {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 10px auto;
+}</code></pre>
+
+                <hr>
+
+                <h3>4. La Mise en Page : Flexbox</h3>
+                <p>Avant, aligner des éléments était un calvaire. Aujourd'hui, <strong>Flexbox</strong> rend
+                    l'alignement extrêmement simple.</p>
+
+                <h4>Exemple : Centrer parfaitement un élément</h4>
+                <pre><code>.conteneur {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;  /* Centre verticalement */
+    gap: 15px; /* Espace entre les enfants */
+}</code></pre>
+
+                <hr>
+
+                <h3>5. Du CSS au Backend ?</h3>
+                <p>Bien que le CSS soit du Frontend pur, le rôle du développeur complet (Full Stack) inclut souvent
+                    l'optimisation côté serveur de ces styles :</p>
+                <ul>
+                    <li><strong>Minification</strong> : Réduire la taille du code CSS (supprimer les espaces) pour un
+                        chargement plus rapide.</li>
+                    <li><strong>Mise en cache</strong> : Configurer le serveur pour dire au navigateur de mémoriser le
+                        CSS.</li>
+                    <li><strong>Préprocesseurs</strong> : Compiler le SCSS en CSS via Node.js ou un outil Backend avant
+                        le déploiement de l'application.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- JS Modal -->
+    <div id="jsModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn" onclick="closeModal('jsModal')">&times;</span>
+            <div class="modal-body">
+                <h2>Le Cerveau du Web : JavaScript</h2>
+                <p>Si le HTML est le squelette et le CSS la peau, <strong>le JavaScript (JS) est le muscle et le
+                        cerveau</strong>. C'est lui qui fait "bouger" le site, manipuler la donnée et interagir avec
+                    vous.</p>
+                <p>Initialement conçu uniquement pour le Frontend (dans le navigateur), le JS a évolué pour devenir l'un
+                    des langages les plus utilisés dans le <strong>Backend</strong> grâce à <strong>Node.js</strong>.
+                </p>
+
+                <hr>
+
+                <h3>1. Les Bases du JS (Frontend)</h3>
+                <p>Côté Frontend, le JS permet d'animer la page, de cacher des éléments, ou encore de vérifier un mot de
+                    passe avant de l'envoyer au serveur.</p>
+                <pre><code class="language-js">// 1. On déclare des variables pour stocker des données
+let prenom = "Alice"; 
+const age = 25; // "const" signifie que la valeur (25) ne changera plus
+
+// 2. On crée une action (une fonction)
+function direBonjour(nom) {
+    alert("Bonjour " + nom + " !"); // Affiche un message à l'écran
+}
+
+// 3. On ordonne au navigateur de lancer l'action !
+direBonjour(prenom);</code></pre>
+
+                <hr>
+
+                <h3>2. La Révolution : JS dans le Backend (Node.js)</h3>
+                <p>Créer un serveur Backend demandait autrefois de maîtriser de nouveaux langages (PHP, Java, Python).
+                    En 2009, <strong>Node.js</strong> a tout changé.</p>
+                <p>Node.js est un environnement qui permet au JavaScript de "sortir" du navigateur pour s'exécuter
+                    <strong>directement sur la machine du serveur</strong>. Le développeur Full Stack peut donc écrire
+                    son interface Utilisateur (Front) ET sa logique Serveur (Back) avec le même langage !</p>
+
+                <hr>
+
+                <h3>3. Comment le JS crée un Serveur Backend ?</h3>
+                <p>Voici un exemple très simple d'un serveur créé en JavaScript. Ce serveur "écoute" en permanence, prêt
+                    à répondre aux requêtes Frontend.</p>
+                <pre><code class="language-js">// On importe "Express", un outil reconnu pour faciliter la création de serveurs
+const express = require('express');
+
+// On initialise l'application Backend
+const app = express();
+
+// On crée une "route" : un point d'entrée vers notre Backend 
+app.get('/api/citation', function(requete, reponse) {
+    // Dès qu'un client Front s'adresse à cette route, on lui renvoie un objet
+    reponse.json({ texte: "Le JavaScript gouverne le web !" });
+});
+
+// On ordonne au serveur de "tourner" en permanence sur le port 3000
+app.listen(3000, function() {
+    console.log("🚀 Le serveur JS tourne et vous écoute sur le port 3000");
+});</code></pre>
+
+                <h4>Explications du code étape par étape :</h4>
+                <ul>
+                    <li><strong><code>require()</code></strong> : Importe l'outil qui facilite le travail (Express).
+                        C'est typique d'une approche serveur (modulaire).</li>
+                    <li><strong><code>app.get()</code></strong> : Crée une route (un point d'ancrage avec la méthode
+                        GET) à l'URL précise <code>/api/citation</code>.</li>
+                    <li><strong><code>reponse.json()</code></strong> : Répond en convertissant l'information en
+                        <strong>JSON</strong> (la langue universelle des données web).</li>
+                    <li><strong><code>app.listen()</code></strong> : Maintient l'ordinateur serveur "éveillé" à écouter
+                        attentivement le port 3000.</li>
+                </ul>
+
+                <hr>
+
+                <h3>4. Le Lien Front / Back (La conclusion)</h3>
+                <p>Voici comment, de son côté, notre page Frontend parvient à récupérer ce que le serveur JS a préparé
+                    en utilisant la fonction <code>fetch()</code> ("aller chercher") :</p>
+                <pre><code class="language-js">// --- Côté FRONTEND (Dans le navigateur) ---
+
+// 1. On s'adresse à la route définie par notre Backend (l'URL complète)
+fetch('http://localhost:3000/api/citation')  
+  // 2. Le backend répond, on convertit (décode) la réponse en objet JSON
+  .then(reponse => reponse.json())       
+  // 3. "donnee" contient enfin notre magnifique objet : { texte: "Le JavaScript..." }
+  .then(donnee => {
+      // 4. On l'affiche sur l'écran Frontend avec fierté !
+      console.log(donnee.texte); // Affiche : Le JavaScript gouverne le web !        
+  });</code></pre>
+
+                <p><strong>Voilà la magie du web moderne !</strong> Un dialogue fluide, structuré et puissant entre une
+                    interface et son moteur en arrière-plan.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/22666211180" class="float-wa" target="_blank" rel="noopener noreferrer" title="Discuter sur WhatsApp">
+        💬
+    </a>
+
+    <!-- ============================================================================== -->
+    <!-- SCRIPT JAVASCRIPT                                                              -->
+    <!-- Le code qui donne vie au site (animations, menu jour/nuit, modales) est ici !  -->
+    <!-- ============================================================================== -->
+    <script src="script.js"></script>
+</body>
+
+</html>
