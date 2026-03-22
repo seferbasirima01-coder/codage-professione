@@ -1,0 +1,673 @@
+/* ==========================================================================
+   LES VARIABLES CSS (Couleurs, Typographie et design général par défaut)
+   ========================================================================== */
+:root {
+    --bg-color: #0d0e15;
+    --text-color: #e2e8f0;
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --accent: #10b981;
+    --glass-bg: rgba(30, 41, 59, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    background-image: url('luffy-bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    transition: color 0.3s;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(13, 14, 21, 0.7); /* Dark overlay to keep text readable */
+    z-index: -2;
+    transition: background 0.3s;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 { fontSize: 4rem; line-height: 1.1; margin-bottom: 1rem; }
+h2 { font-size: 3rem; margin-bottom: 1rem; }
+h1 span, h2 span {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.logo span { color: var(--primary); }
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   FORMES FLOUES EN ARRIÈRE-PLAN (Les "Blobs" colorés)
+   ========================================================================== */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.5;
+    animation: drift 20s infinite alternate;
+}
+
+.blob-1 {
+    top: 10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(0,0,0,0) 70%);
+}
+
+.blob-2 {
+    bottom: 20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(0,0,0,0) 70%);
+    animation-delay: -10s;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* ==========================================================================
+   BARRE DE NAVIGATION (Le menu collé en haut : Logo + Liens + Jour/Nuit)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13, 14, 21, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* ==========================================================================
+   MISE EN PAGE PRINCIPALE (Le bloc "main" et l'espacement des sections)
+   ========================================================================== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 5% 0;
+}
+
+.section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 3rem;
+    margin-bottom: 4rem;
+    border-radius: 24px;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.1);
+}
+
+.badge-primary { background: rgba(59,130,246,0.2); color: #93c5fd; }
+.badge-secondary { background: rgba(139,92,246,0.2); color: #c4b5fd; }
+.badge-accent { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+.badge-success { background: rgba(245,158,11,0.2); color: #fcd34d; }
+
+/* ==========================================================================
+   LES GRILLES ET LES CARTES (Système de "Cards" pour bien aligner le texte)
+   ========================================================================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tech-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.html-icon { background: linear-gradient(135deg, #e34f26, #f06529); }
+.css-icon { background: linear-gradient(135deg, #264de4, #2965f1); }
+.js-icon { background: linear-gradient(135deg, #f7df1e, #d4be10); color: black; }
+
+/* API Flow */
+.api-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    background: rgba(0,0,0,0.3);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px dashed rgba(255,255,255,0.2);
+}
+
+.flow-step {
+    text-align: center;
+    flex: 1;
+}
+
+.flow-step h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.flow-step p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.flow-arrow {
+    color: var(--accent);
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .grid-2, .grid-3, .api-flow {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .tech-stack {
+        flex-direction: column;
+    }
+    
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    
+    .api-flow { padding: 2rem; }
+    .flow-arrow { transform: rotate(90deg); margin: 1rem 0; }
+    
+    .nav-links { display: none; }
+}
+
+/* ==========================================================================
+   FENÊTRES MODALES (Le design des pop-ups de formation HTML / CSS / JS)
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    animation: modalScale 0.3s ease-out;
+}
+
+@keyframes modalScale {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2, .modal-content h3, .modal-content h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.modal-content p {
+    margin-bottom: 1rem;
+}
+
+.modal-content hr {
+    border: 0;
+    height: 1px;
+    background: var(--glass-border);
+    margin: 2rem 0;
+}
+
+.modal-content ul, .modal-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-content pre {
+    background: rgba(0,0,0,0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-content code {
+    font-family: monospace;
+    color: var(--accent);
+    background: rgba(255,255,255,0.05);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.modal-content pre code {
+    background: transparent;
+    padding: 0;
+    color: var(--text-color);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: #94a3b8;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+.click-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--primary);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9em;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.styled-table thead tr {
+    background-color: rgba(59,130,246,0.2);
+    color: white;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   SECTION DE CONTACT & FORMULAIRE (Le style complet des champs de saisie)
+   ========================================================================== */
+.info-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.info-list li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-list a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-list a:hover {
+    color: var(--accent);
+}
+
+.form-illustration {
+    margin-top: 2rem;
+    display: flex;
+    gap: 15px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px var(--primary);
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.confirmation-msg {
+    display: none;
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   GESTION DU THÈME JOUR / NUIT (Bouton + Changements de couleurs du site)
+   ========================================================================== */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 0.2rem 0.8rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    margin-right: 1rem;
+}
+
+.theme-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+body.light-mode {
+    --bg-color: #f1f5f9;
+    --text-color: #0f172a;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode::before {
+    background: rgba(241, 245, 249, 0.65); /* Light overlay for luffy bg */
+}
+
+body.light-mode .card, body.light-mode .tech-item {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.light-mode h3, body.light-mode h4, body.light-mode h2, body.light-mode label {
+    color: #1e293b;
+}
+
+body.light-mode p, body.light-mode ul {
+    color: #334155;
+}
+
+body.light-mode .form-group input, body.light-mode .form-group textarea {
+    background: rgba(255, 255, 255, 0.9);
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+}
+
+body.light-mode .modal-content {
+    background: #f8fafc;
+}
+
+body.light-mode .modal-content pre {
+    background: #e2e8f0;
+}
+
+body.light-mode .modal-content code {
+    color: #0f172a;
+}
+
+/* ==========================================================================
+   BOUTON WHATSAPP FLOTTANT (Celui qui reste fixe en bas à droite de l'écran)
+   ========================================================================== */
+.float-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    font-size: 32px;
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.float-wa:hover {
+    transform: scale(1.1);
+}
